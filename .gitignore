@@ -1,0 +1,4 @@
+.venv
+.env
+test_pmgsy_api.py
+testApiKey.py

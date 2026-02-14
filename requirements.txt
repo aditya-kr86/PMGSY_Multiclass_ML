@@ -1,0 +1,27 @@
+# PMGSY Scheme Predictor - Production Dependencies
+# Python 3.12+ compatible
+
+# Web Framework & UI
+streamlit>=1.32.0
+
+# Data Processing & Analysis
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Data Visualization
+plotly>=5.18.0
+
+# HTTP & API Requests
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Environment Configuration
+python-dotenv>=1.0.0
+
+# IBM Cloud SDK (Optional - for advanced features)
+# ibm-watson-machine-learning>=1.0.335
+
+# Development Dependencies (Optional)
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0
