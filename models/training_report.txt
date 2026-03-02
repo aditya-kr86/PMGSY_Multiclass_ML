@@ -1,0 +1,28 @@
+
+================================================================================
+PMGSY XGBoost Model Training Report
+================================================================================
+Generated: 2026-02-15 21:29:42
+
+Model: XGBoost Classifier with OneHotEncoder preprocessing
+Target: PMGSY_SCHEME (Multi-class Classification)
+
+Classes: ['PM-JANMAN', 'PMGSY-I', 'PMGSY-II', 'PMGSY-III', 'RCPLWEA']
+
+Performance Metrics:
+  - Test Accuracy: 0.9178 (91.78%)
+  - Cross-Validation Score: 0.9240
+
+Best Hyperparameters: {'model__learning_rate': 0.1, 'model__max_depth': 6, 'model__n_estimators': 300}
+
+Files Generated:
+  - pmgsy_xgboost_model.pkl (Trained pipeline)
+  - label_encoder.pkl (Target encoder)
+  - feature_importance.png (Feature importance visualization)
+
+Usage:
+  from models import OfflinePredictor
+  predictor = OfflinePredictor()
+  result = predictor.predict(state, district, ...)
+
+================================================================================

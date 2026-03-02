@@ -10,6 +10,11 @@ numpy>=1.26.0
 
 # Data Visualization
 plotly>=5.18.0
+matplotlib>=3.8.0
+
+# Machine Learning (Offline Model)
+scikit-learn>=1.4.0
+xgboost>=2.0.0
 
 # HTTP & API Requests
 requests>=2.31.0

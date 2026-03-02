@@ -13,7 +13,15 @@ load_dotenv()
 class Config:
     """Application configuration settings."""
     
-    # IBM Cloud credentials
+    # ========================================
+    # MODEL SELECTION - Change this single line to switch models
+    # ========================================
+    # True  = Use offline XGBoost model (no internet required)
+    # False = Use IBM Cloud ML API (requires valid credentials)
+    USE_OFFLINE_MODEL: bool = os.getenv("USE_OFFLINE_MODEL", "False")
+    # ========================================
+    
+    # IBM Cloud credentials (only needed if USE_OFFLINE_MODEL = False)
     IBM_API_KEY: str = os.getenv("IBM_API_KEY", "")
     DEPLOYMENT_ID: str = os.getenv("DEPLOYMENT_ID", "")
     IBM_REGION: str = os.getenv("IBM_REGION", "us-south")

@@ -19,9 +19,17 @@ st.set_page_config(
 
 # Import modules after page config
 from src.config import config
-from src.api import IBMCloudClient
-from src.api.ibm_client import get_confidence_level
 from src.data import DataLoader
+
+# Model selection - switch between online (IBM Cloud) and offline (XGBoost)
+if config.USE_OFFLINE_MODEL:
+    from models import OfflinePredictor
+    from models.offline_predictor import get_confidence_level
+    ModelClient = OfflinePredictor
+else:
+    from src.api import IBMCloudClient
+    from src.api.ibm_client import get_confidence_level
+    ModelClient = IBMCloudClient
 from src.ui import (
     apply_styles,
     render_header,
@@ -68,8 +76,8 @@ def main():
     if st.button("🔮 Predict Scheme", width='stretch'):
         with st.spinner('Analyzing project data...'):
             
-            # Create API client and make prediction
-            client = IBMCloudClient()
+            # Create prediction client (cloud or offline based on config)
+            client = ModelClient()
             
             try:
                 prediction, probabilities, max_confidence = client.predict_scheme(
